@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>css</title>
+	<link rel="stylesheet" href="style.css">
+	<style>
+		body{background-color:orange;}
+		p{color:white;font-size:20px;}
+
+		@import "style.css";
+	</style>
+</head>
+<body>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis nulla, nisi architecto illum dolor asperiores sint, maiores laudantium, impedit expedita saepe voluptate. Fuga quibusdam rem accusamus, iste qui pariatur molestiae.</p>
+	<p style="color:blue">Minima, ex, aperiam. Officiis dolore minus eos accusantium, optio totam vel consectetur esse soluta cupiditate eligendi illo sequi porro similique quam laborum vero temporibus ullam possimus qui, natus ut! Dolores!</p>
+	<p style="color:blue">Iusto, praesentium esse distinctio dolorem, vel est animi veniam quia neque facere laboriosam reprehenderit ea autem incidunt eaque sit provident sunt quasi minus doloribus porro ipsum ratione itaque, atque ipsa.</p>
+	<p>Ex cum aut recusandae aliquid nihil consectetur similique incidunt esse totam, ipsa nesciunt in vitae sunt quos impedit fugit at, dolor ipsum sequi accusantium illum fuga dolorem repudiandae facere. Tenetur.</p>
+	<p>Recusandae commodi incidunt eum dolore molestiae, quod, nostrum. Aspernatur temporibus, magnam amet cupiditate enim ipsa ea explicabo. Sint fuga asperiores nostrum, aliquid eveniet odio, nisi deleniti. Minus quos adipisci enim.</p>
+
+<style>
+	/*#nav{color:white;}*/
+	.menu{color:black;}
+
+	/*우선순위 * < tag name < class name < id name < inline style < !important*/
+</style>
+	<!-- ul#nav>li.menu*5>{menu} -->
+	<ul id="nav">
+		<li class="menu" style="color:red">menu</li>
+		<li class="menu">menu</li>
+		<li class="menu">menu</li>
+		<li class="menu">menu</li>
+		<li class="menu">menu</li>
+	</ul>
+
+	<!-- ul#nav1>li.menu1*5>{menu} -->
+	<style>
+		#nav1 > li{color:red;}
+		ul#nav1 > li{color:red;}
+		ul#nav1 a{color:red;}
+	</style>
+	<ul id="nav1">
+		<li><a href="#">test</a></li>
+		<li>menu</li>
+		<li>menu</li>
+		<li>menu</li>
+		<li>menu</li>
+	</ul>
+
+	<header id="header">
+		<h1>logo</h1>
+		<nav id="nav">
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</nav>
+	</header>
+
+</body>
+</html>
