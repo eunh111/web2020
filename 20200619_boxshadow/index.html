@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>box shadow</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		.box{
+			width: 300px; height: 300px;
+			background: skyblue;
+			padding:20px 25px;
+			border: 2px solid #f00;
+			transition:0.3s;
+			border-radius: 10px;
+			_position:absolute; left: 20px; top: 20px;
+			box-shadow:
+			10px 10px 10px #eee, 
+			-5px -5px 10px #eee,
+			-10px 20px 10px #eee, 
+			10px -10px 10px #eee;
+		}
+
+		.box1{
+			height: 500px;
+			background: url(../images/pc01.jpg) no-repeat center;
+			background-size: cover;
+			position:relative;     /*float는 clearfix이듯이 부모자에 넣어줌*/
+ 		}
+		.box1 h2{
+			width: 400px; height: 108px; /*background: #fff;*/
+			text-align: center;
+			font-size: 2.5em;
+			position: absolute; left: 50%; top: 50%;  /*50%로 넣고나서 마진으로 조정해줌*/
+			margin-left: -200px; margin-top: -54px;
+			color:white;
+			text-shadow: 0 0 10px #000;
+		}
+		.box2{
+			width: 300px;height: 300px;
+			background: green; padding: 10px;
+			position: relative; top: 30px;left: 30px;  
+			/*relative만 쓰면 공간 할당되고 얘만 떨어져나옴*/
+			margin-bottom: 100px;   /*그래서 아랫공간 일부러 만들어줌*/
+			transition:0.3s;
+		}
+		.box2:hover{box-shadow:0 0 20px #000;}
+	</style>
+</head>
+<body>
+	<div class="box">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error eum molestias a ad fugit dignissimos officiis magnam, excepturi eius neque.</div>
+
+	<div class="box1">
+		<h2>Lorem ipsum dolor sit amet.</h2>
+	</div>
+	
+	<div class="box2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, praesentium!</div>
+</body>
+</html>
