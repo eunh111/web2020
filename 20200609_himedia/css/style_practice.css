@@ -40,6 +40,86 @@ nav.gnbMenu ul li{float:left; width: 163.3333px; border-right: 1px solid #316faa
 nav.gnbMenu ul li a{
 	display: block; text-align: center; line-height: 45px; color: #fff;
 }
-
 nav.gnbMenu ul li:first-child{border-left: 1px solid #316faa;}
 nav.gnbMenu ul li a:hover{background: #233e6f;}
+
+
+/*visual*/
+.visualWrap{
+	height: 400px; background: #233e6f;
+	background-image:url(../images/visual_bg02.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.visual{
+	width: 980px; height: 400px;
+	_background: skyblue; margin: 0 auto;
+	position: relative; overflow: hidden;
+}
+.visual img.light{position: absolute; right: 10px; top: 50px;}
+.visual img.vTitle{position:absolute; left: 0; top: 100px;}
+
+
+/*section*/
+.section{background: #eee; margin-bottom: 25px;}
+.section .card{width: 980px; margin: 0 auto;}
+.section .card>li{
+	float: left;width: 20%;height: 195px;text-align: center;
+	color:white; padding: 20px;
+	}
+.section .card li:nth-child(1){background-color:#7c99b9;}
+.section .card li:nth-child(2){background-color:#4f74a1;}
+.section .card li:nth-child(3){background-color:#4b8ce0;}
+.section .card li:nth-child(4){background-color:#3db5f2;}
+.section .card li:nth-child(5){background-color:#95c8ff;}
+
+.section .card li img{display: inline; margin-bottom: 15px;}
+.section .card li h3{margin-bottom: 8px;}
+.section .card li p{font-size:12px;}
+
+
+/*conWrapOne*/
+.conWrapOne{width: 980px; margin: 0 auto; margin-bottom: 25px;}
+.cardTwo li{
+	float:left; width: 310px; margin-right: 25px;
+	cursor:pointer;
+}
+.cardTwo li:last-child{margin-right: 0;}
+.cardTwo li img{}
+
+.cardBody{
+	border: 1px solid #ddd; padding:20px;
+	border-top: 0 none; color:#9b9b9b;
+}
+.cardBody h3{margin-bottom: 7px; color:#626262;}
+
+
+/*conWrapTwo*/
+.conWrapTwo{width: 980px; margin: 0 auto; margin-bottom: 25px;}
+.conWrapTwo .cardThree li{
+	float:left; width: 310px; margin-right: 25px;
+	padding:20px; border: 1px solid #ddd;
+	position: relative;
+	overflow:hidden; color:#9b9b9b;
+}
+.cardThree li:last-child{margin-right: 0;}
+.conWrapTwo img{position: absolute; top: 10px; right: -10px;}
+.card_body{width: 150px; position: relative;}
+.card_body h3{margin-bottom: 7px; color:#626262;}
+.card_body p{margin-bottom: 10px;}
+.card_body a{font-size:14px; color:#4b8ce0;}
+
+
+
+/*footer*/
+#footer{background-color: #5e5e5e;}
+.footerTopWrap{background-color: #4d4d4d;}
+.footerTopWrap .footerTop{width: 980px; margin: 0 auto;}
+.footerTopWrap .footerTop ul{}
+.footerTopWrap .footerTop li{}
+.footerTopWrap .footerTop li a{}
+.footerTopWrap .footerTop .top{}
+
+
+
+.footerBottom{}
