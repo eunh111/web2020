@@ -1,0 +1,25 @@
+@charset "utf-8";
+.topNav{background-color: #333;}
+.topNav a{display: block; color:#fff; float:left; padding:14px 16px;}
+.topNav a.icon{float:right;}
+.topNav a.icon{display: none;}  
+/*pc에서는 햄버거메뉴 가려줘야하니까 일단 다 가리고 시작*/
+
+/*576 922 외우기!!!*/
+@media screen and (max-width: 576px){ /*mobile*/
+	.menuWrap{position:fixed; width: 100%;}
+	.topNav a:not(:first-child){display:none;}
+	/*w576px일때 a중에 첫번째(home)가 아닌 것들은 display:none 한다*/
+	.topNav a.icon{display: block;} /*햄버거 보여줌*/
+	.topNav.responsive a{float:none; display: block;}
+	.topNav.responsive a.icon{position: absolute; right: 0; top: 0;}
+	/*responsive 만들어놓고 JS로 메뉴 동작 구현*/
+}
+@media screen and (min-width:577px) and (max-width:922px){ /*tablet*/
+	.menuWrap{width: 100%;}
+}
+@media screen and (min-width:923px){  /*pc*/
+	.menuWrap{width: 1200px; position:fixed;  /*fixed 는 w 가 반드시 있어야함*/
+		left: 50%; transform: translateX(-50%); top: 20px;
+	}
+}
