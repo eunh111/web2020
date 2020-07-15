@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>array01</title>
+</head>
+<body>
+	<script>
+		var city = ["seoul",,"busan","incheon","daegu"];
+		console.log("city 개수 : " + city.length);
+		alert("city 개수 : " + city.length);
+		// for(var i=0 ; i<city.length ; i++){
+		// 	document.write(city[i]+"<br>");
+		// }
+
+		// 배열 : 서랍장을 만들어서 차곡차곡 배열
+		// index : 저장된 박스의 번호 0 1 2... 
+		// 개발 화면 출력할때 확인용으로 console.log, alert 많이씀
+		// seoul - 엘리먼트
+
+		function printArr(){
+			for(var i=0 ; i<city.length ; i++){
+				document.write(city[i]+"<br>");
+			}
+		}
+	</script>
+
+	<script>
+		printArr();
+	</script>
+</body>
+</html>
