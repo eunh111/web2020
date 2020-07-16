@@ -46,6 +46,7 @@
 				if(toggle == "toggleMenu"){
 					$(this).addClass("change");
 					$(".menu").stop().animate({left:0},300);
+					//300은 duration 0.3초. 안적어주면 0.4s 
 				}else{
 					$(this).removeClass("change");
 					$(".menu").stop().animate({left:"-100%"},300);

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>array</title>
+</head>
+<body>
+	<script>
+		var x = 5;
+		var arr = [100, "seoul", true, x];    
+		//true : 벌룬 1 false는 0. 
+		function printArr(){    //함수 함수이름(){}
+			for(var i=0 ; i<arr.length ; i++ ){
+				document.write(arr[i] + "<br>");
+			}
+		}
+		printArr();    //함수 이름으로 호출해줘야 출력됨
+	</script>
+
+
+	<script>  //구분하기 위해서 script 나눠줌
+		var arrSum = [10,20,30,40,"50"];
+
+		function printArrSum(){      //함수 만들어서 여러가지 값을 출력할 때 사용
+			var sum = 0;
+			for(var i=0 ; i<arrSum.length ; i++){
+				sum += arrSum[i];    //sum = sum + arrSum[i] 랑 같음	
+			}
+			return sum;
+		}
+		// document.write(sum);
+		var result = printArrSum();
+		document.write(result);
+	</script>
+
+
+	<script>  //forEach 메소드.
+		var kdata = ["서울","부산","청주","대구"];
+		function pArr(item,index){
+			document.write(item);
+		}
+
+		kdata.forEach(pArr);
+	</script>
+
+	<script>
+		var data = [1,2,3,4,5,6,7,8,9,10];
+		var sum = 0;
+
+		function addData(value){
+			sum += value;
+
+		}
+
+		data.forEach(addData);
+		document.write(sum)
+	</script>
+</body>
+</html>
