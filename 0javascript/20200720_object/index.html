@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>문서 제목</title>
+</head>
+<body>
+	<script>
+		var kdata=["서울","부산","청주","대구"];
+
+		kdata.forEach(printArr);
+		function printArr(item,index){  //함수생성 함수이름
+			document.write(index+1 +". "+ item+"<br>");
+		}
+
+
+		function printArrOne(){
+			for(var i=0 ; i<kdata.length ; i++){
+				var num = i+1;
+				document.write(num +". "+ kdata[i]+"<br>")
+			}
+		}
+		printArrOne();  //함수실행
+
+		//결과는 똑같음. 두가지 중에 어떤거 쓸지 정하기
+
+		var data=[10, 20, 30, 40, 30, 60, 70, 30, 90,100];
+
+		document.write(data+"<br>");
+		document.write(data.indexOf(30)+"<br>");
+		document.write(data.lastIndexOf(30)+"<br>");
+		document.write(data.indexOf(30,3)+"<br>"); //30이라는 데이터를 찾는데 3번째 이후
+		document.write(data.indexOf(300));
+	</script>
+</body>
+</html>
