@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>test02</title>
+	<script>
+		function change(){
+			var p = document.getElementById("myP");
+			p.style.color = "red";
+			p.style.background = "gray";
+		}
+		function alertBtn(){
+			var text = "경고! 문자빨강 배경회색";
+			alert(text);
+		}
+		function reset(){
+			var p = document.getElementById("myP");
+			p.style.color = "black";
+			p.style.background = "white";
+		}
+	</script>
+</head>
+<body>
+	<p id="myP">안녕하세요.</p>
+	<button type="button" onclick="change(), alertBtn()">변경버튼</button>
+	<button type="button" onclick="reset()">되돌리기</button>
+</body>
+</html>
