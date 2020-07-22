@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>dom02</title>
+	<script>
+		function change(){
+			var span = document.getElementsByTagName("span");
+			console.log(span.length);
+			// span[0].style.color = "red";
+			for(var i=0 ; i<span.length ; i++){
+				span[i].style.color="red";
+				span[i].style.fontWeight="bold";
+			}
+		}
+		//change();   
+		//만든 함수를 call 불러옴. 숨긴 이유는 위에 div태그변경 만들어줬기때문
+
+		function cChange(){
+			var span = document.getElementsByClassName("text");
+			// span[0].style.color = "red";
+			for(var i=0 ; i<span.length ; i++){
+				span[i].style.color="orchid";
+				span[i].style.fontWeight="bold";
+			}
+		}
+	</script>	
+</head>
+<body>
+	Lorem ipsum dolor sit <span class="text">amet</span>, consectetur adipisicing elit. <span class="text">Dicta</span> debitis sit reprehenderit impedit repellendus <span>corrupti</span> in exercitationem modi <span>nobis</span> molestiae.
+
+	<div onclick="change()">태그변경</div>
+	<div onclick="cChange()">클래스변경</div>
+</body>
+</html>
