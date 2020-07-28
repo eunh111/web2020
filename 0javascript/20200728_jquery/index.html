@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>jquery01</title>
+	<link rel="stylesheet" href="../../css/reset.css">
+	<script src="../../js/jquery-3.1.1.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			//$("p").hide();    p태그 다 숨기기
+			//$("p").eq(0).hide();
+			var plen = $("p").length;
+			console.log(plen);
+			for(var i=0 ; i<plen ; i++ ){
+				// $("p").eq(i).hide();
+				$("p").eq(i).css("background","red").css("font-size",30);
+			}
+
+			// $(선택자).on("click",function(){});
+			// $(선택자).click(function(){});
+			// dom.addEventListener("click",function(){});
+
+			$(".btn_hide").click(function(){
+				$("p").slideUp();
+			});
+			$(".btn_show").click(function(){
+				$("p").slideDown();
+			});
+		});
+	</script>
+</head>
+<body>
+	<p>1.Lorem ipsum dolor.</p>
+	<p>2.Error, voluptatem saepe.</p>
+	<p>3.Voluptatum, pariatur, illo.</p>
+	<p>4.Possimus earum, distinctio!</p>
+	<p>5.Rerum, tempore, possimus!</p>
+	<p>6.Rerum, odio, reiciendis.</p>
+	<p>7.Modi, architecto enim.</p>
+	<p>8.Odit molestiae, repudiandae.</p>
+	<p>9.Aliquam facere, harum.</p>
+	<p>10.Laudantium, deserunt, culpa!</p>
+	
+	<button type="button" class="btn_show">button1</button>
+	<button type="button" class="btn_hide">button2</button>
+
+	<script>
+		// var tagP = document.getElementsByTagName("p");
+		// for(var i=0 ; i<tagP.length ; i++ ){
+		// 	tagP[i].style.display = "none";
+		// }
+		// 자바스크립트 for문으로 했을때 p태그 다 숨기기		
+
+		// dom.onclick = han;
+		// function han(){}
+	</script>
+	
+	<style>
+		ul>li{float:left; width: 100px; background: skyblue; margin-right: 10px; text-align: center; line-height: 40px;}
+		.wrap{width: 400px; border: 1px solid #000;}
+		.box1,.box2,.box3{width: 400px; padding: 20px;}
+	</style>
+	<script>
+		$(document).ready(function(){
+			$(".box2,.box3").hide();
+			$("ul>li").eq(0).click(function(){
+				$(".box1,.box2,.box3").hide();
+				$(".box1").fadeIn();
+			});
+			$("ul>li").eq(1).click(function(){
+				$(".box1,.box2,.box3").hide();
+				$(".box2").fadeIn();
+			});
+			$("ul>li").eq(2).click(function(){
+				$(".box1,.box2,.box3").hide();
+				$(".box3").fadeIn();
+			});
+		})
+	</script>
+	<ul class="clearfix">
+		<li>menu1</li>	<!-- $("ul>li").eq(0).click(function(){}); -->
+		<li>menu2</li>	<!-- $("ul>li").eq(1).click(); -->
+		<li>menu3</li>	<!-- $("ul>li").eq(2).click(); -->
+	</ul>
+	<div class="wrap">
+		<div class="box1">1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, odit.</div>
+		<div class="box2">2. Facere quis eaque, fuga inventore! Earum quam, maxime consequuntur repellat?</div>
+		<div class="box3">3. Consectetur, atque, placeat dolores qui autem sapiente ipsa nemo earum.</div>
+	</div>
+
+</body>
+</html>
