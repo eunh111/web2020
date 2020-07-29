@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>menu practice</title>
+	<link rel="stylesheet" href="../../css/reset.css">
+	<script src="../../js/jquery-3.1.1.min.js"></script>
+	<style>
+		.menuWrap{width: 1000px; margin: 0 auto;}
+		ul>li{float: left; width: 200px; height: 50px; line-height: 50px; text-align: center; border: 1px solid #000;}
+		.boxWrap{width: 1000px; padding:30px; border: 1px solid #000;}
+		.boxWrap .box2,
+		.boxWrap .box3,
+		.boxWrap .box4,
+		.boxWrap .box5{display: none;}
+		.active{background: orange; color:#fff;}
+	</style>
+
+	<script>
+		$(document).ready(function(){
+			$("ul>li").click(function(){
+				var liNum = $(this).index();
+				$("ul>li").removeClass();
+				$(this).addClass("active");
+				$(".boxWrap>div").hide();
+				$(".boxWrap>div").eq(liNum).show();
+			});			
+		});
+	</script>
+</head>
+<body>
+	<div class="menuWrap">
+		<ul class="clearfix">
+			<li class="active">menu1</li>
+			<li>menu2</li>
+			<li>menu3</li>
+			<li>menu4</li>
+			<li>menu5</li>
+		</ul>
+		<div class="boxWrap">
+			<div class="box1">1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem reprehenderit commodi, sequi in debitis nihil repellat quod nemo nulla temporibus.</div>
+			<div class="box2">2. Ipsam tempora, perferendis libero. Nisi accusantium ducimus sint esse, architecto id magnam quas omnis. Consequuntur fugit dicta, doloribus voluptates officia.</div>
+			<div class="box3">3. Harum incidunt dignissimos corporis eaque sint ratione aperiam libero consequuntur deleniti, placeat repellat molestias laboriosam, doloribus animi, nesciunt odio. Neque.</div>
+			<div class="box4">4. Quae id aspernatur mollitia eos. Pariatur tenetur corporis vero distinctio reprehenderit, tempore totam eos aliquid officia aperiam id aut consectetur!</div>
+			<div class="box5">5. Ullam nostrum eos saepe deleniti voluptas, quibusdam non est sed odit cupiditate quaerat officiis porro dolorum, placeat culpa quo obcaecati?</div>
+		</div>
+	</div>
+</body>
+</html>
