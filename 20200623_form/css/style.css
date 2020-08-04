@@ -54,7 +54,8 @@ div#wrap{width: 460px; margin: 0 auto;}
 #content fieldset .field .btn-label.female{right: 15px;}
 #content fieldset .field .btn-label.on{background: skyblue;}
 #content fieldset .field.btn-radio{height: 49px;}
-#content fieldset .field.btn-radio input{position: relative; left: 50px; top: 14px;}
+#content fieldset .field.btn-radio input{
+	position: relative; left: 50px; top: 14px;}
 
 #content fieldset .field.birth label{
 	float:left; width: 53px;height: 49px;border-right: 1px solid #eee;
