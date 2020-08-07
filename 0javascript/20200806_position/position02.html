@@ -9,30 +9,32 @@
 	<style>
 		html,body{height: 100%;}
 		.scene{
-			width: 100%; height: 100%;
+			width: 100%;height: 100%;
 			background-attachment: fixed;
 			background-position: center;
 			background-size: cover;
 			position: relative;
 		}
 
-		.scene.one{background-image: url(../../images/pc01.jpg);}
-		.scene.two{background-image: url(../../images/pc02.jpg);}
-		.scene.three{background-image: url(../../images/pc03.jpg);}
+		.scene.one{background-image:url(../../images/pc01.jpg);}
+		.scene.two{background-image:url(../../images/pc02.jpg);}
+		.scene.three{background-image:url(../../images/pc03.jpg);}
 
 		.scene div{
-			width: 600px; position: absolute;
-			left: 50%;top: 50%;transform: translate(-50%,-50%);
-			color:#fff; text-align: center;
+			width: 700px;position: absolute;
+			left: 50%;top: 50%;transform:translate(-50%,-50%);
+			color:white;text-align: center;
 		}
-		.scene div h2{font-size: 3em;}
-		.scene div h2:after{content:"";width: 100%;height: 2px;background: #fff; 
-			display: block; margin: 10px auto;
+		.scene div h2{font-size:3em;}
+		.scene div h2:after{content:"";width: 100%;height: 2px;background: #ffffff;display: block;margin:10px auto;}
+
+		nav.menu{
+			position: fixed;width: 100%;height: 40px;
+			background-color:skyblue;z-index:1;padding-left:40px;
 		}
-		nav.menu{position: fixed;width: 100%;height: 40px;background-color:skyblue;
-			z-index: 1; padding-left: 40px;
-		}
-		nav.menu a{display: inline-block;line-height: 40px;}
+		nav.menu a{display: inline-block;line-height:40px;padding:0 10px;}
+
+		nav.menu a.active{background: #f00;}
 	</style>
 	<script>
 		$(function(){
@@ -52,42 +54,86 @@
 			// 	return false;
 			// });
 
+				//2st menu move
+				// $(".menu>a").click(function(){
+				// 	var i = $(this).index();
+				// 	var st = $(".scene").eq(i).offset().top;
+					
+				// 	$(".menu>a").removeClass("active");
+				// 	$(this).addClass("active");
 
-			// 위에것 짧게 표현
-			$(".menu>a").click(function(){
-				var i = $(this).index();
-				var st = $(".scene").eq(i).offset().top;
-				console.log(i+"번째 위치값"+st);
-				$("html,body").animate({scrollTop:st},300);
+				// 	console.log(i+" 번째 위치값 "+st);
+				// 	$("html,body").stop().animate({scrollTop:st},300);
+				// });
 
-			});
+				//3st menu move
+				$(".menu>a").click(function(){
+					var target = $(this.hash);
+					console.log(target);
+					var st = target.offset().top;
+					$("html,body").stop().animate({scrollTop:st},300);
+					return false;
+				});
+
+				$(window).scroll(function(){
+					var scrollY = $(window).scrollTop();
+					console.log("스크롤값 - "+scrollY);
+					
+					// if( $(".scene").eq(0).offset().top <= scrollY){
+					// 	$(".menu>a").removeClass("active").eq(0).addClass("active");
+					// }
+					// if( $(".scene").eq(1).offset().top <= scrollY ){
+					// 	$(".menu>a").removeClass("active").eq(1).addClass("active");
+					// }
+					// if( $(".scene").eq(2).offset().top <= scrollY ){
+					// 	$(".menu>a").removeClass("active").eq(2).addClass("active");
+					// }
+
+					//위에 if문 3줄짜리를 for문 1줄짜리로 바꿈
+					for(var i=0 ; i<$(".scene").length ; i++){
+						if( $(".scene").eq(i).offset().top <= scrollY){
+						$(".menu>a").removeClass("active").eq(i).addClass("active");
+						}
+					}
+				});
 		});
+
+		
+
 	</script>
 </head>
 <body>
 	<nav class="menu">
-		<a href="#l_01">menu1</a>
-		<a href="#l_02">menu2</a>
+		<a href="#l_01" class="active">menu1</a> 
+		<a href="#l_02">menu2</a> 
 		<a href="#l_03">menu3</a>
 	</nav>
 	<section class="scene one" id="l_01">
-		<!-- div>h1>lorem5^p>lorem20 -->
+		<!-- div>(h2>lorem5)+(p>lorem20)
+		div>h2>lorem5^p>lorem20 -->
 		<div>
-			<h2>Lorem ipsum dolor sit amet.</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni beatae, tempore quia odio reiciendis, repudiandae saepe itaque ipsam eligendi accusantium.</p>
+			<h2>Lorem ipsum dolor sit #01</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est ducimus tempora assumenda nulla dicta provident eum facere quod rerum fuga.</p>
 		</div>
 	</section>
-	<section class="scene two" id="l_02">
+	<section class="scene two"  id="l_02">
+		<!-- div>(h2>lorem5)+(p>lorem20)
+		div>h2>lorem5^p>lorem20 -->
 		<div>
-			<h2>Lorem ipsum dolor sit amet.</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni beatae, tempore quia odio reiciendis, repudiandae saepe itaque ipsam eligendi accusantium.</p>
+			<h2>Lorem ipsum dolor sit #02</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est ducimus tempora assumenda nulla dicta provident eum facere quod rerum fuga.</p>
 		</div>
 	</section>
-	<section class="scene three" id="l_03">
+	<section class="scene three"  id="l_03">
+		<!-- div>(h2>lorem5)+(p>lorem20)
+		div>h2>lorem5^p>lorem20 -->
 		<div>
-			<h2>Lorem ipsum dolor sit amet.</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni beatae, tempore quia odio reiciendis, repudiandae saepe itaque ipsam eligendi accusantium.</p>
+			<h2>Lorem ipsum dolor sit #03</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est ducimus tempora assumenda nulla dicta provident eum facere quod rerum fuga.</p>
 		</div>
 	</section>
+	<script>
+		
+	</script>
 </body>
 </html>
