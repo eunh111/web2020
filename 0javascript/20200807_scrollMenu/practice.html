@@ -3,35 +3,33 @@
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta charset="UTF-8">
-	<title>scroll menu</title>
+	<title>practice</title>
 	<link rel="stylesheet" href="../../css/reset.css">
 	<script src="../../js/jquery-3.1.1.min.js"></script>
 	<style>
 		.viewBox{
-			position: fixed;width: 200px;height: 200px;
-			top:30px;right:30px;background-color:skyblue;
-			padding:10px;
+			position: fixed; width: 200px;height: 200px;
+			top: 30px;right: 30px;background-color: skyblue;
+			padding: 10px;
 		}
 		.nav{width: 100%;}
-		.nav.fixed{position: fixed;top:0;}
+		.nav.fixed{position: fixed;top: 0;}
 		.nav li{float: left;width: 20%;height: 40px;text-align: center;line-height: 40px;background-color: #ccc;}
-		#car1{
-			width:120px;height: 70px;
-			position: absolute;left:30px;
-			transition:0.3s;opacity:0;
+		#car1{width: 120px;height: 70px;
+			position: absolute;left: 30px;
+			transition: 0.3s;opacity: 0;
 		}
-		#car1.move{left:300px;opacity:1;}
-		.top{
-			position:fixed;width: 100px;height: 100px;
-			line-height:100px;right: 50px;bottom: 50px;
-			border-radius:50%;background: #000000;color:white;
-			text-align: center;cursor:pointer;
+		#car1.move{left: 300px;opacity: 1;}
+		.top{position: fixed; width: 100px;height: 100px;
+			line-height: 100px; right: 50px;bottom: 50px;
+			border-radius: 50%;background: #000;color: white;
+			text-align: center;cursor: pointer;
 			animation:viewTop 1s infinite alternate;
-			opacity:0;transition:0.3s;
+			opacity: 0; transition: 0.3s;
 		}
 		@keyframes viewTop{
-			from{transform:translateY(0);}
-			to{transform:translateY(-20px);}
+			from{transform: translateY(0);}
+			to{transform: translateY(-20px);}
 		}
 		.top.view{opacity:1;}
 	</style>
@@ -50,28 +48,17 @@
 				if(menuPos<scrollY){
 					$(".nav").addClass("fixed");
 				}else{
-					$(".nav").removeClass("fixed")
+					$(".nav").removeClass("fixed");
 				}
 
 				if(car1 < scrollY+300){
 					$("#car1").addClass("move");
-				}else{
-					$("#car1").removeClass("move")
-				}
-
-				if(winHeight/2 < scrollY){
-					$(".top").addClass("view");
-				}else{
-					$(".top").removeClass("view");
-				}
-
+				}else{}
 			});
 
-			$(".top").click(function(){
-				$("html,body").animate({scrollTop:0},300);
-			});
 
 		});
+
 	</script>
 </head>
 <body>
@@ -108,6 +95,7 @@
 		<p>25</p>
 		<p>26</p>
 		<p>27</p>
+		<p>28</p>
 		<div class="nav">
 			<ul class="clearfix">
 				<li>menu1</li>
@@ -117,7 +105,6 @@
 				<li>menu5</li>
 			</ul>
 		</div>
-		<p>28</p>
 		<p>29</p>
 		<p>30</p>
 		<p>31</p>
