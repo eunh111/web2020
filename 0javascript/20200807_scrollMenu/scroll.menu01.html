@@ -21,26 +21,44 @@
 	</style>
 	<script>
 		$(function(){
-			var menu = $("#top_menu>ul>li");
-			var contents = $("#content>div");
+			var menu = $("#top_menu>ul>li"); //menu dom
+			var contents = $("#contents>div");  //div dom
 
-			menu.click(function(event){
-				event.preventDefault();
-				var i = $(this).index();
-				var section = contents.eq(i);
+			menu.click(function(event){  //  $("#top_menu>ul>li").click()
+				event.preventDefault();  // a tag 클릭방지 3가지 방법 중 하나 return false, a 태그에 javascript:void(0)
+				var i = $(this).index();  //i는 li클릭시 몇번째 배열값. 0~2까지
+				var section = contents.eq(i); //
 				var tt = section.offset().top - 114;
-			$("html,body").stop().animate({scrollTop:tt});
-			});
 
-			$(window).scroll(function(){
-				var sct = window.pageYOffset;
-				console.log(sct);
+				// var tt = $("#contents>div").eq(i).offset().top  위 두줄을 한줄로 쓸경우
 
-				contents.each(function(index){
-				if(sct >= $(this).offset().top -114){
-					menu.removeClass("on");
-					menu.eq(index).addClass("on");
-				}
+				// contents.eq($(this).index()).offset()/top;
+				// console.log(tt);
+
+				$("html,body").stop().animate({scrollTop:tt});
+				});  // 메뉴를 누르면 윗쪽으로  
+
+
+				//여기부터는 스크롤 관련된 값
+				$(window).scroll(function(){
+					var sct = window.pageYOffset;   //$(window).scrollTop()와 같다.
+					console.log(sct);		
+
+					//1. each로 쓸 경우
+					contents.each(function(index){  //contents의 div 값을 각각 넣어준다
+					// var i = $(this).index();
+					if(sct >= $(this).offset().top -114){  //this contents div에 
+					menu.removeClass("on");   
+					menu.eq(index).addClass("on");    //index 0,1,2로 돌려줌
+					}
+
+
+					// //2. for,if로 쓸 경우
+					// for(var i=0 ; i<menu.length ; i++){
+					// 	if(sct >= contents.eq(i).offset().top -114){
+					// 		menu.removeClass("on").eq(i).addClass.("on");
+					// 	}
+					// }
 				});
 			});		
 		});
