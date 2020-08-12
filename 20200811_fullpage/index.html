@@ -7,12 +7,27 @@
 	<link rel="stylesheet" href="css/fullpage.css">
 	<link rel="stylesheet" href="css/reset.css">
 	<script src="js/jquery-3.1.1.min.js"></script>
-	<script src="js/jquery.fullPage.js"></script>
+	<script src="js/jquery.fullpage.js"></script>
 	<script>
 		$(function(){
 			$("#fullpage").fullpage({
 				anchors:["a1st","a2st","a3st","a4st"],
-				menu:"#topMenu"
+				menu:"#topMenu",
+				navigation:true,
+				afterLoad:function(anchorslink,index){
+					console.log(anchorslink+", "+index);
+					if(index == 1){
+						$("#onViewOne").addClass("move");
+					}else{
+						$("#onViewOne").removeClass("move");
+					}
+
+					if(index == 2){
+						$("#onViewTwo").addClass("move");
+					}else{
+						$("#onViewTwo").removeClass("move");
+					}
+				}
 			});
 		});
 	</script>
@@ -21,26 +36,58 @@
 		#page2{background-image: url(images/bg2.jpg);}
 		#page3{background-image: url(images/bg3.jpg);}
 		#page4{background-image: url(images/bg4.jpg);}
-		
+
 		.section{
 			background-repeat: no-repeat;
 			background-position: center;
-			background-size: cover;
+			background-size:cover;
 		}
 
 		nav#navTop{
-			position: fixed; z-index: 1; width: 100%;
+			position: fixed;z-index:1;width: 100%;
 			background-color: #cdcdcd;
 		}
 		nav#navTop li{float: left;}
-		nav#navTop a{display: block;line-height: 50px;text-align: center;padding: 0 10px;}
-		nav#navTop li.active{background-color: skyblue;}
+		nav#navTop li a{display: block;line-height:50px;text-align: center;padding: 0 10px;}
 
+		nav#navTop li.active{background-color:skyblue;}
+		.scroll{
+			position: absolute;left: 50%;transform:translateX(-50%);
+			bottom: 20px;animation:xScroll 0.8s infinite alternate;
+		}
+		@keyframes xScroll{
+			from{bottom: 20px;}
+			to{bottom: 40px;}
+		}
+		.main{
+			width: 400px;position: absolute;left: 50%;top:30%;transform: translateX(-50%);
+			color:white;text-align: center;
+		}
+		.main a{
+			display: block;width: 150px;
+			border: 1px solid #fff;line-height: 35px;
+			color:white;border-radius:18px;margin: 0 auto;
+		}
+		.main a:hover{background-color: #ffffff;color:#000;}
+
+		#onViewOne{top:10%;transition:0.3s;opacity:0;}
+		#onViewOne.move{top:30%;opacity:1;}
+
+		#onViewTwo{left:10%;transition:0.3s;opacity:0;}
+		#onViewTwo.move{left:50%;opacity:1;}
+
+
+
+		.f3em{font-size:3em !important}
+		.f25em{font-size:2.5em !important}
+		.f2em{font-size:2em !important}
+		.f15em{font-size:1.5em !important}
+		.mb20{margin-bottom: 20px !important;}
 	</style>
 </head>
 <body>
 	<nav id="navTop">
-		<!-- ul#topMenu>li*4>a[#a$st]>{MENU$} -->
+		<!-- ul#topMenu>li*4>a[#a$st]>{MENu$} -->
 		<ul id="topMenu" class="clearfix">
 			<li data-menuanchor="a1st"><a href="#a1st">MENU1</a></li>
 			<li data-menuanchor="a2st"><a href="#a2st">MENU2</a></li>
@@ -49,10 +96,45 @@
 		</ul>
 	</nav>
 	<div id="fullpage">
-		<div class="section" id="page1" data-anchor="a1st"></div>
-		<div class="section" id="page2" data-anchor="a2st"></div>
+		<div class="section" id="page1" data-anchor="a1st">
+			<div class="main" id="onViewOne">
+				<h3 class="f25em">Lorem ipsum.</h3>
+				<p class="f15em mb20">Lorem ipsum dolor sit.</p>
+				<a href="#">MORE</a>
+			</div>
+			<div class="scroll">
+				<a href="#a2st"><img src="images/btn_scroll.png" alt=""></a>
+			</div>
+		</div>
+		<div class="section" id="page2" data-anchor="a2st">
+			<div class="main" id="onViewTwo">
+				<h3 class="f25em">Lorem ipsum.</h3>
+				<p class="f15em mb20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis, voluptas?	</p>
+				<a href="#">MORE</a>
+			</div>
+			<div class="scroll">
+				<a href="#a3st"><img src="images/btn_scroll.png" alt=""></a>
+			</div>
+		</div>
 		<div class="section" id="page3" data-anchor="a3st"></div>
-		<div class="section" id="page4" data-anchor="a4st"></div>
+		<style>
+			.slide{position: relative;}
+			.slide .view{position: absolute;width: 80%;height: 500px;background-color: skyblue; left: 50%; top: 50%; transform: translate(-50%,-50%);}
+		</style>
+		<div class="section" id="page4" data-anchor="a4st">
+			<div class="slide">
+				<div class="view">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam consequatur similique tempora doloremque amet error temporibus, fugit! Nostrum maiores, natus, veritatis, illo sed sint excepturi, est impedit exercitationem voluptatem laboriosam.</div>
+			</div>
+			<div class="slide">
+				<div class="view">Odio, molestiae, nemo exercitationem similique ea ipsum, laborum, minima sequi sed aliquam quasi nulla est perspiciatis praesentium a ex nihil commodi reprehenderit. Consectetur laboriosam doloremque cumque, possimus? Quasi distinctio, nihil.</div>
+			</div>
+			<div class="slide">
+				<div class="view">Eos quidem, consequatur sit ad, eum dolor facilis enim ut quae sed illo nostrum, beatae exercitationem voluptatum, accusantium cum repudiandae libero sapiente doloribus voluptatibus modi! Exercitationem a quibusdam, optio laborum.</div>
+			</div>
+		</div>
+		<div class="section fp-auto-height" data-anchor="a5st">
+			<div class="footer" style="height:300px; background-color: skyblue;"></div>
+		</div>
 	</div>
 </body>
 </html>
