@@ -10,10 +10,12 @@
 	<script src="js/jquery.fullpage.js"></script>
 	<script>
 		$(function(){
+
 			$("#fullpage").fullpage({
 				anchors:["a1st","a2st","a3st","a4st"],
 				menu:"#topMenu",
 				navigation:true,
+				navigationPosition: 'right',
 				afterLoad:function(anchorslink,index){
 					console.log(anchorslink+", "+index);
 					if(index == 1){
@@ -32,7 +34,7 @@
 		});
 	</script>
 	<style>
-		#page1{background-image: url(images/bg1.jpg);}
+		#page1{_background-image: url(images/bg1.jpg);}
 		#page2{background-image: url(images/bg2.jpg);}
 		#page3{background-image: url(images/bg3.jpg);}
 		#page4{background-image: url(images/bg4.jpg);}
@@ -95,18 +97,66 @@
 			<li data-menuanchor="a4st"><a href="#a4st">MENU4</a></li>
 		</ul>
 	</nav>
+
+	<style>
+		.carImg{
+			width: 100%;height: 100%;
+			background-image:url(images/main_hero_homepage_desktop.jpg);
+			background-position: 50% 60%;
+			background-repeat: no-repeat;
+			position: relative;
+		}
+		.carImg .pager{
+			position: absolute;
+			left:50%;transform: translateX(-50%);
+			bottom:200px;
+		}
+		.carImg .pager>span{display: inline-block;
+			width: 20px;height: 20px;border-radius:10px;text-indent: -9999px;
+			border: 1px solid #fff;cursor:pointer;
+		}
+		.carImg .pager span.active{background-color: #fff;}
+
+	</style>
+	<script>
+		$(function(){
+			$(".pager>span").click(function(){
+				var i = $(this).index()*50;
+
+				$(".carImg").stop().animate({"background-position-x":i+"%"},300)
+				$(".pager>span").removeClass("active").eq($(this).index()).addClass("active");
+			});
+		})
+	</script>
+	<style>
+		#video{
+			position: absolute;width: 100%;height: 100%;
+			object-fit:cover;top:0;
+		}
+	</style>
 	<div id="fullpage">
 		<div class="section" id="page1" data-anchor="a1st">
+			
 			<div class="main" id="onViewOne">
 				<h3 class="f25em">Lorem ipsum.</h3>
 				<p class="f15em mb20">Lorem ipsum dolor sit.</p>
 				<a href="#">MORE</a>
+			</div>
+			<div class="carImg">
+				<div class="pager">
+					<span>1</span>
+					<span class="active">2</span>
+					<span>3</span>
+				</div>
 			</div>
 			<div class="scroll">
 				<a href="#a2st"><img src="images/btn_scroll.png" alt=""></a>
 			</div>
 		</div>
 		<div class="section" id="page2" data-anchor="a2st">
+			<video id="video" autoplay muted data-autoplay loop>
+				<source src="video/video.mp4" type="video/mp4">
+			</video>
 			<div class="main" id="onViewTwo">
 				<h3 class="f25em">Lorem ipsum.</h3>
 				<p class="f15em mb20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis, voluptas?	</p>
@@ -119,21 +169,25 @@
 		<div class="section" id="page3" data-anchor="a3st"></div>
 		<style>
 			.slide{position: relative;}
-			.slide .view{position: absolute;width: 80%;height: 500px;background-color: skyblue; left: 50%; top: 50%; transform: translate(-50%,-50%);}
+			.slide div{position: absolute;width: 100%;height: 100%;left:0;top:0;}
+			.slide .view1{background-color: skyblue;}
+			.slide .view2{background-color: red;}
+			.slide .view3{background-color: blue;}
+			.slide .view4{background-color: yellow;}
 		</style>
 		<div class="section" id="page4" data-anchor="a4st">
 			<div class="slide">
-				<div class="view">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam consequatur similique tempora doloremque amet error temporibus, fugit! Nostrum maiores, natus, veritatis, illo sed sint excepturi, est impedit exercitationem voluptatem laboriosam.</div>
+				<div class="view1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis nobis rerum, rem dicta quisquam eveniet dolore provident pariatur est atque quis voluptatibus sit distinctio impedit voluptatum non, dignissimos modi facilis!</div>
 			</div>
 			<div class="slide">
-				<div class="view">Odio, molestiae, nemo exercitationem similique ea ipsum, laborum, minima sequi sed aliquam quasi nulla est perspiciatis praesentium a ex nihil commodi reprehenderit. Consectetur laboriosam doloremque cumque, possimus? Quasi distinctio, nihil.</div>
+				<div class="view2">Voluptatum ex aperiam earum voluptates fugiat asperiores dolore a dolorem, ullam tempora, vero iure. Culpa quibusdam nisi nihil consequuntur, laudantium, possimus praesentium suscipit quo illum rem, quod eos distinctio dolor.</div>
 			</div>
 			<div class="slide">
-				<div class="view">Eos quidem, consequatur sit ad, eum dolor facilis enim ut quae sed illo nostrum, beatae exercitationem voluptatum, accusantium cum repudiandae libero sapiente doloribus voluptatibus modi! Exercitationem a quibusdam, optio laborum.</div>
+				<div class="view3">Libero necessitatibus tenetur, animi delectus accusamus! Labore commodi maxime ducimus, quibusdam laborum dignissimos placeat! Laborum a dolorum vero? Reiciendis modi repudiandae nobis, facere adipisci sapiente doloribus voluptate deserunt architecto assumenda.</div>
 			</div>
 		</div>
 		<div class="section fp-auto-height" data-anchor="a5st">
-			<div class="footer" style="height:300px; background-color: skyblue;"></div>
+			<div class="footer" style="height:300px;background-color:skyblue; "></div>
 		</div>
 	</div>
 </body>
